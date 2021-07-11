@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('test');
 });
 
-Route::get('administracion/usuarios', 'Admin\UsersController@index');
-Route::get('administracion/usuarios/{user}', 'Admin\UsersController@show');
+Route::prefix('administracion')->namespace('Admin')->name('admin.')->group(function(){
+    Route::resource('usuarios','UsersController')->names('user')->parameters(['usuarios' => 'user'] );
+    //Route::resource('roles','UsersController')->names('role');
+});
+
 
 
 // Gestión

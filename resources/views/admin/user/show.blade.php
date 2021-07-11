@@ -307,59 +307,32 @@
             </div>
             <!-- /.tab-pane -->
 
-            <div class="tab-pane" id="settings">
-              <form class="form-horizontal">
-                <div class="form-group row">
-                  <label for="inputName" class="col-sm-2 col-form-label">Nombres</label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputName" placeholder="Nombres">
-                  </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputLastName" class="col-sm-2 col-form-label">Apellidos</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputLastName" placeholder="Apellidos">
+            <div class="tab-pane" id="settings">              
+                {!! Form::open() !!}
+                  <div class="row">
+                    <div class="col-12  col-md-6">
+                        {!! Field::text('Nombres', $row->firstname ,['required' => true,'placeholder' => 'Nombres']) !!}                       
                     </div>
-                  </div>
-                <div class="form-group row">
-                  <label for="inputEmail" class="col-sm-2 col-form-label">Correo</label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Correo">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="inputName2" class="col-sm-2 col-form-label">Usuario</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputName2" placeholder="Nombre de usuario">
-                  </div>
-                </div>
-                {{-- <div class="form-group row">
-                  <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                  <div class="col-sm-10">
-                    <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                  </div>
-                </div> --}}
-                {{-- <div class="form-group row">
-                  <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                  </div>
-                </div> --}}
-                {{-- <div class="form-group row">
-                  <div class="offset-sm-2 col-sm-10">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                      </label>
+                    <div class="col-12 col-md-6">
+                        {!! Field::text('Apellidos', $row->lastname,['placeholder' => 'Apellidos']) !!}
                     </div>
-                  </div>
-                </div> --}}
-                <div class="form-group row">
+                    <div class="col-12  col-md-6">
+                        {!! Field::email('Email',$row->email ,['required' => true,'placeholder' => 'Email']) !!}
+                    </div>
+                    <div class="col-12  col-md-6">
+                        {!! Field::text('Usuario',$row->username ,['required' => true,'placeholder' => 'Nombre de usuario']) !!}
+                    </div>
+                    <div class="col-12  col-md-6">
+                        {!! Field::date('Fecha Inicio',$row->start_date ,['placeholder' => 'Fecha Inicio']) !!}
+                    </div>
+                </div>
+                <div class="float-right">
                   <div class="offset-sm-2 col-sm-10">
                     <button type="submit" class="btn btn-success">Guardar</button>
                   </div>
                 </div>
-              </form>
+              {!! Form::close() !!}     
+               
             </div>
             <!-- /.tab-pane -->
           </div>

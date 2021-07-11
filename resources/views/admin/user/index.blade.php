@@ -18,7 +18,7 @@
           <i class="fas fa-minus"></i></button>
         <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
           <i class="fas fa-times"></i></button>
-          <a href="" title="Crear usuario">
+          <a href="{{ route('admin.user.create') }}" title="Crear usuario">
             <i class="fas fa-plus"></i></a>
       </div>
     </div>
@@ -35,7 +35,7 @@
                <tbody>
                    @foreach ($users as $user)
                    <tr>
-                        <td><a href="usuarios/{{ $user->id }}">{{ $user->firstname }}</a></td>
+                        <td><a href="{{ route('admin.user.show', $user->id) }}">{{ $user->firstname }}</a></td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->username }}</td>
                         <td>{{ $user->start_date }}</td>
